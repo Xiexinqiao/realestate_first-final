@@ -9,8 +9,34 @@ from part1.toolbox.property import Property
 from part1.toolbox.client import Client
 from part1.toolbox.queue import Queue
 from part1.toolbox.avl_tree import AVLTree
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
+def analyze_data(root, properties_df):
+    # 数据分析
+    fig = Figure(figsize=(6, 4), dpi=100)
+    ax = fig.add_subplot(111)
 
+    # 房产价格分布
+    properties_df['price'].plot(kind='hist', bins=20, ax=ax, title='Property Price Distribution')
+
+    canvas = FigureCanvasTkAgg(fig, master=root)
+    canvas.draw()
+    canvas.get_tk_widget().pack()
+
+def display_property(root, property, add_to_favorites, request_viewing):
+    frame = tk.Frame(root)
+    frame.pack(pady=10)
+
+    tk.Label(frame, text=f"Property ID: {property.property_id}").pack()
+    tk.Label(frame, text=f"Address: {property.address}").pack()
+    tk.Label(frame, text=f"Price: {property.price}").pack()
+    tk.Label(frame, text=f"Type: {property.property_type.value}").pack()
+    tk.Label(frame, text=f"Status: {property.status.value}").pack()
+    tk.Label(frame, text=f"Owner: {property.owner}").pack()
+
+    tk.Button(frame, text="Add to Favorites", command=lambda p=property: add_to_favorites(p)).pack(side=tk.LEFT)
+    tk.Button(frame, text="Request Viewing", command=lambda p=property: request_viewing(p)).pack(side=tk.RIGHT)
 # 加载数据集
 properties_df = pd.read_csv('data/real_estate_properties_dataset.csv')
 clients_df = pd.read_csv('data/client_requests_dataset.csv')
