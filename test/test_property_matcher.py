@@ -37,6 +37,12 @@ class TestPropertyMatcher(unittest.TestCase):
     def test_empty_list(self):
         matched = self.matcher.match_properties(self.client, [])
         self.assertEqual(len(matched), 0)
+    
+    def test_negative_price_property(self):    
+        matched = self.matcher.match_properties(self.client, self.properties)    
+        self.assertFalse(any(prop['price'] < 0 for prop in matched), "Found a negative price property in matched list")
+
+
 
     def test_invalid_budget(self):
         with self.assertRaises(TypeError):
