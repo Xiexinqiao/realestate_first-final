@@ -262,7 +262,7 @@ The following figure shows the result：
 | Yuze Du      | Database design and maintenance System testing and quality assurance   | Design and maintain a MySQL database to ensure data integrity and consistency. Perform unit testing, integration testing, and system testing to ensure system stability and reliability.            |
 | Tiefeng Zhou | Writing and maintaining project documentation                          | Write and update project documentation, documenting system functionality and operating instructions.                                                                                                |
 
-## 6.3 Tips(每个人的感想)
+## 6.3 Tips(Everyone's thoughts)
 
 Xinqiao Xie: Through this project, I learned how to better coordinate the team and manage the project schedule. This not only improved my project management skills, but also made me realize the importance of teamwork. In the face of various challenges and unexpected situations, I have gradually mastered the methods and skills to deal with them flexibly. In the project, I have mastered more skills in data processing and business logic implementation. By solving complex back-end problems, my programming skills have improved significantly. At the same time, I also learned how to optimize the code, improve the performance of the system, and ensure that the data processing is efficient and accurate.
 
