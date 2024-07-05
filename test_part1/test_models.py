@@ -1,10 +1,8 @@
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[1])) # 将父级目录加入执行目录列表
-
 import unittest
 from part1.toolbox.models import Property, Client
-
 from enum import Enum
 
 class PropertyType(Enum):
@@ -16,6 +14,7 @@ class PropertyType(Enum):
 class PropertyStatus(Enum):
     AVAILABLE = "AVAILABLE"
     SOLD = "SOLD"
+
 class TestModels(unittest.TestCase):
 
 

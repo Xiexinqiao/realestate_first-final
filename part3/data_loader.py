@@ -51,3 +51,4 @@ def load_external_properties(api_url):
         property = Property(item['property_ID'], item['address'], item['price'], item['property_type'], item['status'], item.get('owner'))
         properties.insert(property.property_ID, property)
     return properties
+

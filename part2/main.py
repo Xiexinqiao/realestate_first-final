@@ -2,9 +2,16 @@
 
 import tkinter as tk
 from tkinter import ttk, messagebox
-from data_loader import load_properties, load_clients
 from toolbox.property_match import PropertyMatcher
+from data_loader import load_properties, load_clients
 
+
+class Client:
+    def __init__(self, client_ID, name, contact_info, budget):
+        self.client_ID = client_ID
+        self.name = name
+        self.contact_info = contact_info
+        self.budget = budget
 
 class Application(tk.Tk):
     def __init__(self):
@@ -14,6 +21,8 @@ class Application(tk.Tk):
 
         self.properties = load_properties('data/real_estate_properties_dataset.csv')
         self.clients = load_clients('data/client_requests_dataset.csv')
+
+        self.clients = self.load_clients()
 
         self.create_widgets()
 
@@ -71,9 +80,7 @@ class Application(tk.Tk):
 
     def load_properties(self):
         for prop in self.properties.in_order_traversal(self.properties.root):
-            self.tree.insert("", tk.END, values=(
-            prop.property_ID, prop.address, prop.price, prop.property_type.value, prop.status.value, prop.owner,
-            prop.views))
+            self.tree.insert("", tk.END, values=(prop.property_ID, prop.address, prop.price, prop.property_type.value, prop.status.value, prop.owner, prop.views))
 
     def on_tree_select(self, event):
         selected_item = self.tree.selection()[0]
@@ -99,9 +106,7 @@ class Application(tk.Tk):
             for item in self.tree.get_children():
                 self.tree.delete(item)
             for prop in matching_properties:
-                self.tree.insert("", tk.END, values=(
-                prop.property_ID, prop.address, prop.price, prop.property_type.value, prop.status.value, prop.owner,
-                prop.views))
+                self.tree.insert("", tk.END, values=(prop.property_ID, prop.address, prop.price, prop.property_type.value, prop.status.value, prop.owner, prop.views))
 
     def create_tab2_widgets(self):
         frame = ttk.Frame(self.tab2)
@@ -117,10 +122,18 @@ class Application(tk.Tk):
         process_button = ttk.Button(control_frame, text="Process Request", command=self.process_request)
         process_button.pack(side=tk.LEFT, padx=5, pady=5)
 
+    def load_clients(self):
+        return [
+            Client(1, "Alice Johnson", "alice@example.com", 350000),
+            Client(2, "Bob Miller", "bob@example.com", 250000),
+            Client(3, "Charlie Davis", "charlie@example.com", 400000),
+            Client(4, "Diana Wilson", "diana@example.com", 200000),
+            Client(5, "Edward Taylor", "edward@example.com", 300000)
+        ]
+
     def load_requests(self):
         for client in self.clients:
-            self.request_list.insert(tk.END,
-                                     f"{client.client_ID}: {client.name}, {client.contact_info}, Budget: {client.budget}")
+            self.request_list.insert(tk.END, f"{client.client_ID}: {client.name}, {client.contact_info}, Budget: {client.budget}")
 
     def process_request(self):
         selected_index = self.request_list.curselection()
@@ -139,8 +152,7 @@ class Application(tk.Tk):
         if not matched_properties:
             messagebox.showinfo("No Matching Properties", "No properties match the client's criteria")
         else:
-            result = "\n".join(
-                f"ID: {prop.property_ID}, Address: {prop.address}, Price: {prop.price}" for prop in matched_properties)
+            result = "\n".join(f"ID: {prop.property_ID}, Address: {prop.address}, Price: {prop.price}" for prop in matched_properties)
             messagebox.showinfo("Matching Properties", result)
 
 

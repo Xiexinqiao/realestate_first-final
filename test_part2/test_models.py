@@ -15,7 +15,6 @@ class PropertyStatus(Enum):
     AVAILABLE = "AVAILABLE"
     SOLD = "SOLD"
 
-
 class TestModels(unittest.TestCase):
 
 

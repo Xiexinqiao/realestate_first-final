@@ -4,7 +4,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from data_loader import load_properties, load_clients
+from data_loader import load_properties
 from toolbox.property_match import PropertyMatcher
 from toolbox.models import Client
 
@@ -16,7 +16,7 @@ class Application(tk.Tk):
         self.geometry("800x600")
 
         self.properties = load_properties('data/real_estate_properties_dataset.csv')
-        self.clients = load_clients('data/client_requests_dataset.csv')
+        self.clients = self.load_clients()
 
         self.create_widgets()
 
@@ -78,9 +78,7 @@ class Application(tk.Tk):
 
     def load_properties(self):
         for prop in self.properties.in_order_traversal(self.properties.root):
-            self.tree.insert("", tk.END, values=(
-            prop.property_ID, prop.address, prop.price, prop.property_type.value, prop.status.value, prop.owner,
-            prop.views))
+            self.tree.insert("", tk.END, values=(prop.property_ID, prop.address, prop.price, prop.property_type.value, prop.status.value, prop.owner, prop.views))
 
     def on_tree_select(self, event):
         selected_item = self.tree.selection()[0]
@@ -106,9 +104,7 @@ class Application(tk.Tk):
             for item in self.tree.get_children():
                 self.tree.delete(item)
             for prop in matching_properties:
-                self.tree.insert("", tk.END, values=(
-                prop.property_ID, prop.address, prop.price, prop.property_type.value, prop.status.value, prop.owner,
-                prop.views))
+                self.tree.insert("", tk.END, values=(prop.property_ID, prop.address, prop.price, prop.property_type.value, prop.status.value, prop.owner, prop.views))
 
     def create_tab2_widgets(self):
         frame = ttk.Frame(self.tab2)
@@ -124,10 +120,18 @@ class Application(tk.Tk):
         process_button = ttk.Button(control_frame, text="Process Request", command=self.process_request)
         process_button.pack(side=tk.LEFT, padx=5, pady=5)
 
+    def load_clients(self):
+        return [
+            Client(1, "Alice Johnson", "alice@example.com", 350000),
+            Client(2, "Bob Miller", "bob@example.com", 250000),
+            Client(3, "Charlie Davis", "charlie@example.com", 400000),
+            Client(4, "Diana Wilson", "diana@example.com", 200000),
+            Client(5, "Edward Taylor", "edward@example.com", 300000)
+        ]
+
     def load_requests(self):
         for client in self.clients:
-            self.request_list.insert(tk.END,
-                                     f"{client.client_ID}: {client.name}, {client.contact_info}, Budget: {client.budget}")
+            self.request_list.insert(tk.END, f"{client.client_ID}: {client.name}, {client.contact_info}, Budget: {client.budget}")
 
     def process_request(self):
         selected_index = self.request_list.curselection()

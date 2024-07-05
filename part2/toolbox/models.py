@@ -14,7 +14,6 @@ class PropertyStatus(Enum):
     AVAILABLE = "AVAILABLE"
     SOLD = "SOLD"
 
-
 class Property:
     def __init__(self, property_ID, address, price, property_type, status, owner=None):
         self.property_ID = property_ID
