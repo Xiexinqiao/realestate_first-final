@@ -216,7 +216,7 @@ The following figure shows the result：
 
 <img width="326" alt="图片2" src="https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/b7a0fecf-595a-487b-9192-11ed4579653e">
 
-3.Test
+3.Test（we have three part test）
 
 ![1fd8b9b62ba86dff749df689bc399f7](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/08bf0c53-0686-4801-bc52-111d0c37d8e4)![20b847885f15e74d79f5696c444c387](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/8c4c1c04-af06-4f81-85b3-5f5aff5e62bc)![975aae47c58b541feb6e65612500ad7](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/0bc3db50-f8fd-4148-84ad-685dd123aa00)![b9f0f3680242c66d0e73f0a24d3535b](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/faba14f5-426b-49c2-8108-b45a9d917f0e)![0cbb029d72d3bb2886222c4f23c6878](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/7c652f2f-dede-4b9f-823c-314779df1a23)
 ![b32757ba6ba27451478b4283e52f9dc](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/e36b3ff4-8553-4f44-bff2-a7a378ec99f0)
@@ -230,10 +230,12 @@ The following figure shows the result：
 4.UI：
 
 ![e513ad9661913a178e63263c8dec447](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/7f1b92c3-3bfe-4f7b-8db0-07033ee40010)
+![image](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/cb1282f3-b475-44bd-b347-914c01949f89)
+![image](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/b7e7bb93-4821-49bd-bf12-e127e03726e2)
 
 5.Visualization
 
-<img width="879" alt="4fe0e80fc0a9178be6316e83b31a680" src="https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/13e79566-4fef-4352-89a7-4fd10cf90ac3">
+![image](https://github.com/Xiexinqiao/realestate_first-final/assets/173774309/8f6960bc-fe43-4092-8bcd-6628c3222299)
 
 
 
